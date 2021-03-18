@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\AccountModel;
+use App\Models\Account;
 
 class AccountController extends Controller
 {
@@ -14,7 +14,7 @@ class AccountController extends Controller
      */
     public function index()
     {
-        return AccountModel::all();
+        return Account::all();
     }
 
     /**
@@ -24,7 +24,7 @@ class AccountController extends Controller
      */
     public function search($name)
     {
-        return AccountModel::where("username", $name)->get();
+        return Account::where("username", $name)->get();
     }
     /**
      * Store a newly created resource in storage.
@@ -34,7 +34,7 @@ class AccountController extends Controller
      */
     public function store(Request $request)
     {
-        return AccountModel::create($request->all());
+        return Account::create($request->all());
     }
 
     /**
@@ -43,9 +43,9 @@ class AccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(AccountModel $id)
+    public function show(Account $account)
     {
-       return $id;
+       return $account;
     }
 
     /**
@@ -66,9 +66,9 @@ class AccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,AccountModel $id)
+    public function update(Request $request,Account $account)
     {
-        return  $id->update($request->all());
+        return  $account->update($request->all());
     }
 
     /**
@@ -77,7 +77,7 @@ class AccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AccountModel  $id)
+    public function destroy(Account $id)
     {
         $id->delete();
     }

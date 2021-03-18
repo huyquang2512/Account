@@ -19,9 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
     Route::get('account', 'App\Http\Controllers\AccountController@index');
-    Route::get('account/{id}', 'App\Http\Controllers\AccountController@show');
+    Route::get('account/{account}', 'App\Http\Controllers\AccountController@show');
     Route::delete('account/{id}', 'App\Http\Controllers\AccountController@destroy');
-    Route::put('account/update/{id}', 'App\Http\Controllers\AccountController@update');
+    Route::put('account/update/{account}', 'App\Http\Controllers\AccountController@update');
     Route::post('insert', 'App\Http\Controllers\AccountController@store');
     Route::get('search/{name}', 'App\Http\Controllers\AccountController@search');
 // Route::apiResource('store', AccountController::class);
